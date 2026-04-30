@@ -30,11 +30,9 @@ public class UserController {
         userService.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-       @DeleteMapping
-       public ResponseEntity<?> deleteUserById(){
+       @GetMapping
+       public ResponseEntity<?> greeting(){
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            userRepository.deleteByUserName(authentication.getName());
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
+            return new ResponseEntity<>("Hi "+authentication.getName(),HttpStatus.OK);
     }
 }

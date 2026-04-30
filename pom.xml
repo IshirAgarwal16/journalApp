@@ -21,6 +21,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<sonar.organization>ishiragarwal16</sonar.organization>
 	</properties>
 
 	<dependencies>

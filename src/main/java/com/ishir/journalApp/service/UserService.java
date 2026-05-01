@@ -1,12 +1,9 @@
 package com.ishir.journalApp.service;
 
-import com.ishir.journalApp.controller.JournalEntryController;
 import com.ishir.journalApp.entity.User;
 import com.ishir.journalApp.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,27 +17,22 @@ import java.util.Optional;
 @Component
 public class UserService {
 
-
     @Autowired
     private UserRepository userRepository;
 
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    private static final Logger logger = LoggerFactory.getLogger(JournalEntryController .class);
-
-
+    // ✅ FIXED METHOD (test pass hoga)
     public boolean saveNewUser(User user) {
-        try{
+        try {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRoles(Arrays.asList("USER"));
+
             userRepository.save(user);
             return true;
-        }catch(Exception e){
-            logger.error("hahahahaha");
-            logger.warn("hahahahahaha");
-            logger.trace("hahahahahaha");
-            logger.error("hahahahahaha");
-            logger.debug("hahahahahaha");
+
+        } catch (Exception e) {
+            log.error("Error saving user", e);
             return false;
         }
     }
@@ -71,4 +63,3 @@ public class UserService {
         return userRepository.findByUserName(userName);
     }
 }
-//controller ---> service ---> repository

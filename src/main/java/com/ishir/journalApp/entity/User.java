@@ -18,8 +18,9 @@ public class User {
 
     @Id
     private ObjectId id;
-    @Indexed(unique = true)
+
     @NonNull
+    @Indexed(unique = true)
     private String userName;
     @NonNull
     private String password;

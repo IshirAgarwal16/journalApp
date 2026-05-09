@@ -27,6 +27,5 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      # ✅ ONLY BUILD (NO SONAR)
       - name: Build Project
         run: mvn clean install

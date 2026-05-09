@@ -1,0 +1,32 @@
+weather:
+  api:
+    key: 2eb5c9d2f8366a1c33a44a849f197b51
+
+spring:
+  redis:
+    host: redis-15791.crce300.ap-south-1-2.ec2.cloud.redislabs.com
+    port: 15791
+    password: pi1xJFbN5SnfUE3izq54gzsXD9O4fD26
+  data:
+    mongodb:
+      uri: mongodb+srv://ishiragarwal16_db_user:Ishir12345@cluster0.yupdh7a.mongodb.net/journaldb?retryWrites=true&w=majority
+      database: journaldb
+      auto-index-creation: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ishiragarwal16@gmail.com
+    password: "wdaw mdsp krtj dyrt"
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8081
+  servlet:
+    context-path: /journal
